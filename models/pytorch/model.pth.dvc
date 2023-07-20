@@ -1,9 +1,9 @@
 outs:
-- md5: ec950549165f9161711ccc9d118c93ce
+- md5: 1912b19d9440c37e610edbffa3546939
   size: 67137659
   hash: md5
   path: model.pth
   cloud:
     azure-storage:
-      etag: '"0x8DB88E66934AD33"'
-      version_id: '2023-07-20T05:58:59.1982659Z'
+      etag: '"0x8DB88E7475203D4"'
+      version_id: '2023-07-20T06:05:11.8447332Z'
