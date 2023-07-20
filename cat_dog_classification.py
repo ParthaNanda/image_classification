@@ -17,6 +17,7 @@ import torch.optim as optim
 import torchvision.transforms as transforms
 import torchvision.datasets as datasets
 from torch.utils.data import DataLoader
+import uuid  # Import the uuid module
 
 # Define the CNN model
 class CatsDogsCNN(nn.Module):
@@ -85,12 +86,21 @@ for epoch in range(num_epochs):
     print(f"Epoch [{epoch + 1}/{num_epochs}], Loss: {running_loss / len(train_loader):.4f}")
 
 
-save_path = './models/pytorch/'
-os.makedirs(save_path, exist_ok=True)  # Create the path if it doesn't exist
+# save_path = './models/pytorch/'
+# os.makedirs(save_path, exist_ok=True)  # Create the path if it doesn't exist
+# model_filename = 'model.pth'
+# model_file_path = os.path.join(save_path, model_filename)
+# torch.save(model.state_dict(), model_file_path)
+
+# Generate a unique run ID
+run_id = str(uuid.uuid4())[:8]  # Using the first 8 characters of the UUID as the run ID
+
+# Save the model output in a folder with the run ID
+save_path = os.path.join('./models/pytorch/', run_id)  # Relative path to the working directory
+os.makedirs(save_path, exist_ok=True)  # Create the folder if it doesn't exist
 model_filename = 'model.pth'
 model_file_path = os.path.join(save_path, model_filename)
 torch.save(model.state_dict(), model_file_path)
-
 
 # Evaluation
 model.eval()
