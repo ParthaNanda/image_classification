@@ -23,6 +23,20 @@ outs:
       azure-storage:
         etag: '"0x8DB88F30D6FF7DB"'
         version_id: '2023-07-20T07:29:28.6929371Z'
+  - relpath: 8da40d84/metadata.json
+    md5: 2bf08696ef600334b1edc73350540ab8
+    size: 165
+    cloud:
+      azure-storage:
+        etag: '"0x8DB89183DDD9066"'
+        version_id: '2023-07-20T11:55:41.3208166Z'
+  - relpath: 8da40d84/model.pth
+    md5: 9db616859810236ca4f7f8163f812f04
+    size: 67137659
+    cloud:
+      azure-storage:
+        etag: '"0x8DB89183CDE48E6"'
+        version_id: '2023-07-20T11:55:39.6478182Z'
   - relpath: baf6dd0f/metadata.json
     md5: ec5c31c3ae0cf5be0e053c1999550e43
     size: 165
@@ -37,3 +51,17 @@ outs:
       azure-storage:
         etag: '"0x8DB88FA40A32D6A"'
         version_id: '2023-07-20T08:21:01.0694506Z'
+  - relpath: dfe4af68/metadata.json
+    md5: 04fbabd15f5c9a7e3992f8390d8b5e79
+    size: 165
+    cloud:
+      azure-storage:
+        etag: '"0x8DB89183D3ED0AB"'
+        version_id: '2023-07-20T11:55:40.2804395Z'
+  - relpath: dfe4af68/model.pth
+    md5: 5145c75d852a1396d36908a7a085e7a7
+    size: 67137659
+    cloud:
+      azure-storage:
+        etag: '"0x8DB89185F671E02"'
+        version_id: '2023-07-20T11:56:37.5870978Z'

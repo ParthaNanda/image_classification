@@ -53,7 +53,7 @@ test_data = datasets.ImageFolder('./cat_dog/test_set/', transform=transform)
 
 # COMMAND ----------
 batch_size = 32
-lr = 0.001
+lr = 0.002
 # Create data loaders
 train_loader = DataLoader(train_data, batch_size=batch_size, shuffle=True)
 test_loader = DataLoader(test_data, batch_size=batch_size, shuffle=False)
@@ -66,7 +66,7 @@ criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=lr)
 
 # Training loop
-num_epochs = 1
+num_epochs = 2
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model.to(device)
