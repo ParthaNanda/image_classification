@@ -63,7 +63,7 @@ criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
 
 # Training loop
-num_epochs = 5
+num_epochs = 1
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model.to(device)
@@ -84,10 +84,13 @@ for epoch in range(num_epochs):
 
     print(f"Epoch [{epoch + 1}/{num_epochs}], Loss: {running_loss / len(train_loader):.4f}")
 
-save_path = '/models/pytorch/'
+
+save_path = './models/pytorch/'
 os.makedirs(save_path, exist_ok=True)  # Create the path if it doesn't exist
 model_filename = 'model.pth'
-torch.save(model.state_dict(), os.path.join(save_path, model_filename))
+model_file_path = os.path.join(save_path, model_filename)
+torch.save(model.state_dict(), model_file_path)
+
 
 # Evaluation
 model.eval()

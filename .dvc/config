@@ -1,0 +1,6 @@
+[core]
+    remote = azure-storage
+['remote "azure-storage"']
+    url = azure://imageclassification/
+    version_aware = true
+    account_name = dvcdemo
