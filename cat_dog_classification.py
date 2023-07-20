@@ -4,12 +4,13 @@
 # COMMAND ----------
 
 # %sh
-# # unzip /dbfs/FileStore/cat_dog/test_set.zip -d /dbfs/FileStore/cat_dog/
-# unzip /dbfs/FileStore/cat_dog/training_set.zip -d /dbfs/FileStore/cat_dog/
+# unzip /cat_dog/test_set.zip -d /dbfs/FileStore/cat_dog/
+# unzip /cat_dog/training_set.zip -d /dbfs/FileStore/cat_dog/
 
 
 # COMMAND ----------
 
+import os
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -43,8 +44,8 @@ transform = transforms.Compose([
 ])
 
 # Load the dataset
-train_data = datasets.ImageFolder('/dbfs/FileStore/cat_dog/training_set/', transform=transform)
-test_data = datasets.ImageFolder('/dbfs/FileStore/cat_dog/test_set/', transform=transform)
+train_data = datasets.ImageFolder('./cat_dog/training_set/', transform=transform)
+test_data = datasets.ImageFolder('./cat_dog/test_set/', transform=transform)
 
 
 
@@ -62,7 +63,7 @@ criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
 
 # Training loop
-num_epochs = 1
+num_epochs = 5
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model.to(device)
@@ -83,6 +84,11 @@ for epoch in range(num_epochs):
 
     print(f"Epoch [{epoch + 1}/{num_epochs}], Loss: {running_loss / len(train_loader):.4f}")
 
+save_path = '/models/pytorch/'
+os.makedirs(save_path, exist_ok=True)  # Create the path if it doesn't exist
+model_filename = 'model.pth'
+torch.save(model.state_dict(), os.path.join(save_path, model_filename))
+
 # Evaluation
 model.eval()
 correct = 0
@@ -99,5 +105,3 @@ with torch.no_grad():
 print(f"Test Accuracy: {100 * correct / total:.2f}%")
 
 # COMMAND ----------
-
-
