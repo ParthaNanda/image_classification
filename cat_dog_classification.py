@@ -52,17 +52,18 @@ test_data = datasets.ImageFolder('./cat_dog/test_set/', transform=transform)
 
 
 # COMMAND ----------
-
+batch_size = 32
+lr = 0.001
 # Create data loaders
-train_loader = DataLoader(train_data, batch_size=32, shuffle=True)
-test_loader = DataLoader(test_data, batch_size=32, shuffle=False)
+train_loader = DataLoader(train_data, batch_size=batch_size, shuffle=True)
+test_loader = DataLoader(test_data, batch_size=batch_size, shuffle=False)
 
 # Initialize the model
 model = CatsDogsCNN()
 
 # Loss function and optimizer
 criterion = nn.CrossEntropyLoss()
-optimizer = optim.Adam(model.parameters(), lr=0.001)
+optimizer = optim.Adam(model.parameters(), lr=lr)
 
 # Training loop
 num_epochs = 1
@@ -108,9 +109,9 @@ metadata = {
     "run_id": run_id,
     "model_architecture": "CatsDogsCNN",
     "optimizer": "Adam",
-    "learning_rate": 0.001,
-    "batch_size": 32,
-    "num_epochs": 1,
+    "learning_rate": lr,
+    "batch_size": batch_size,
+    "num_epochs": num_epochs,
     
 }
 
