@@ -18,6 +18,7 @@ import torchvision.transforms as transforms
 import torchvision.datasets as datasets
 from torch.utils.data import DataLoader
 import uuid  # Import the uuid module
+import json
 
 # Define the CNN model
 class CatsDogsCNN(nn.Module):
@@ -101,6 +102,24 @@ os.makedirs(save_path, exist_ok=True)  # Create the folder if it doesn't exist
 model_filename = 'model.pth'
 model_file_path = os.path.join(save_path, model_filename)
 torch.save(model.state_dict(), model_file_path)
+
+# Store metadata in a dictionary
+metadata = {
+    "run_id": run_id,
+    "model_architecture": "CatsDogsCNN",
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "batch_size": 32,
+    "num_epochs": 1,
+    
+}
+
+# Save metadata in JSON format
+metadata_filename = 'metadata.json'
+metadata_file_path = os.path.join(save_path, metadata_filename)
+
+with open(metadata_file_path, 'w') as json_file:
+    json.dump(metadata, json_file, indent=4)
 
 # Evaluation
 model.eval()

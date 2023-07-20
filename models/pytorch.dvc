@@ -1,0 +1,39 @@
+outs:
+- hash: md5
+  path: pytorch
+  files:
+  - relpath: 0b06f4df/model.pth
+    md5: 01ab66cb8d415947c8e69e5f4caef99c
+    size: 67137659
+    cloud:
+      azure-storage:
+        etag: '"0x8DB88F544043EC6"'
+        version_id: '2023-07-20T07:45:19.2551110Z'
+  - relpath: 1820cb6e/model.pth
+    md5: 6a77c8cb569c3e9d2ef73d49dd64a817
+    size: 67137659
+    cloud:
+      azure-storage:
+        etag: '"0x8DB88F2F9433737"'
+        version_id: '2023-07-20T07:28:54.8452151Z'
+  - relpath: 4856b4f8/model.pth
+    md5: 44bcbed0787314741cc72998448067cd
+    size: 67137659
+    cloud:
+      azure-storage:
+        etag: '"0x8DB88F30D6FF7DB"'
+        version_id: '2023-07-20T07:29:28.6929371Z'
+  - relpath: baf6dd0f/metadata.json
+    md5: ec5c31c3ae0cf5be0e053c1999550e43
+    size: 165
+    cloud:
+      azure-storage:
+        etag: '"0x8DB88FA4118C094"'
+        version_id: '2023-07-20T08:21:01.8399892Z'
+  - relpath: baf6dd0f/model.pth
+    md5: 0c40689e4ab4b98f5737df6196b948f9
+    size: 67137659
+    cloud:
+      azure-storage:
+        etag: '"0x8DB88FA40A32D6A"'
+        version_id: '2023-07-20T08:21:01.0694506Z'
